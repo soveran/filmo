@@ -70,26 +70,17 @@
 
   <script>
     var links = document.getElementsByTagName("section");
-    var nexts = function() {
-      window.scrollBy(0, window.innerHeight);
-    }
-    var prevs = function() {
-      window.scrollBy(0, -window.innerHeight);
-    }
+    var nexts = function() { window.scrollBy(0, window.innerHeight); }
+    var prevs = function() { window.scrollBy(0, -window.innerHeight); }
+    var onClick = function(e) { if(e.target.nodeName != "A") nexts(); }
     var onKeyUp = function(e) {
       switch(e.which) {
-        case 39:
-          nexts();
-          break;
-        case 37:
-          prevs();
-          break
+        case 39: nexts(); break;
+        case 37: prevs(); break;
       }
     }
 
-    for (var i = 0, il = links.length; i < il; i++) {
-      links[i].onclick = nexts;
-    }
+    document.onclick = onClick;
     document.onkeyup = onKeyUp;
   </script>
 </html>

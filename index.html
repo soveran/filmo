@@ -77,16 +77,8 @@
     </div>
 
     <script type="text/javascript">
-      var curr = document.getElementById("slides").firstElementChild;
-      var next = function() { show(curr.nextElementSibling); }
-      var prev = function() { show(curr.previousElementSibling); }
-
-      var show = function(slide) {
-        if(slide) {
-          window.scrollTo(0, slide.offsetTop);
-          curr = slide;
-        }
-      }
+      var prev = function() { window.scrollBy(0, -window.innerHeight); }
+      var next = function() { window.scrollBy(0, window.innerHeight); }
 
       document.onkeyup = function(e) {
         switch(e.which) {

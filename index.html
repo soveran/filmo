@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>Filmo</title>
+  <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+  <link href="css/main.css" rel="stylesheet" type="text/css">
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Crete Round', serif;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      position: relative;
+    }
+
+    section {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      page-break-after: always;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    section p {
+      margin: 0;
+      padding: 40px;
+      font-size: 50px;
+    }
+
+    section span {
+      font-weight: 500;
+      padding: 8px 8px 4px 8px;
+      color: black;
+      background: yellow;
+    }
+
+    section span a {
+      color: #f00;
+      text-decoration: none;
+    }
+
+    section.s1 { background-image: url("1.jpg"); }
+    section.s2 { background-image: url("2.jpg"); }
+    section.s3 { background-image: url("3.jpg"); }
+</style>
+
+</head>
+  <body>
+    <section class="s1">
+      <p><span>Click or scroll, your choice.</span></p>
+    </section>
+    <section class="s2">
+      <p><span>Huge background images.</span></p>
+    </section>
+    <section class="s3">
+      <p><span>Filmo. Get it <a href="http://soveran.github.com/filmo">here</a>.</span></p>
+    </section>
+  </body>
+
+  <script>
+    var links = document.getElementsByTagName("section");
+    var nexts = function() {
+      window.scrollBy(0, window.innerHeight);
+    }
+
+    for (var i = 0, il = links.length; i < il; i++) {
+      links[i].onclick = nexts;
+    }
+  </script>
+</html>

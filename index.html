@@ -19,6 +19,7 @@
       padding: 0;
       height: 100%;
       position: relative;
+      overflow: hidden;
     }
 
     div#slides {
@@ -64,7 +65,7 @@
   <body>
     <div id="slides">
       <section class="s1">
-        <p><span>Click or scroll, your choice.</span></p>
+        <p><span>Click or press the right arrow key.</span></p>
       </section>
       <section class="s2">
         <p><span>Huge background images.</span></p>
@@ -87,19 +88,27 @@
         }
       }
 
-      var onClick = function(e) {
-        if(e.target.nodeName != "A") next();
-      }
-
-      var onKeyUp = function(e) {
+      document.onkeyup = function(e) {
         switch(e.which) {
-          case 39: next(); break;
           case 37: prev(); break;
+          case 39: next(); break;
         }
       }
 
-      document.onclick = onClick;
-      document.onkeyup = onKeyUp;
+      document.onkeydown = function(e) {
+        switch(e.which) {
+          case 38:
+          case 40: return false;
+        }
+      }
+
+      document.onclick = function(e) {
+        if(e.target.nodeName != "A") next();
+      }
+
+      window.onload = function() {
+        scrollTo(0, 0);
+      }
     </script>
   </body>
 </html>

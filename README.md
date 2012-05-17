@@ -1,12 +1,13 @@
 Filmo
 =====
 
-Single page presentation.
+A single page presentation tool.
 
 Description
 -----------
 
-Filmo is just an HTML document tailored for quick presentations.
+Filmo is an HTML document tailored for quick presentations. Check
+the demo at [files.soveran.com/filmo](http://files.soveran.com/filmo).
 
 Usage
 -----

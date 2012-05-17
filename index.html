@@ -73,9 +73,23 @@
     var nexts = function() {
       window.scrollBy(0, window.innerHeight);
     }
+    var prevs = function() {
+      window.scrollBy(0, -window.innerHeight);
+    }
+    var onKeyUp = function(e) {
+      switch(e.which) {
+        case 39:
+          nexts();
+          break;
+        case 37:
+          prevs();
+          break
+      }
+    }
 
     for (var i = 0, il = links.length; i < il; i++) {
       links[i].onclick = nexts;
     }
+    document.onkeyup = onKeyUp;
   </script>
 </html>

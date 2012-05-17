@@ -4,23 +4,29 @@
   <meta charset="UTF-8" />
 
   <title>Filmo</title>
-  <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
+  <link
+    href="http://fonts.googleapis.com/css?family=Crete+Round"
+    rel="stylesheet"
+    type="text/css">
   <style>
     html {
       height: 100%;
     }
 
     body {
-      font-family: 'Crete Round', 'Trebuchet MS', sans-serif;
+      font-family: "Crete Round", "Trebuchet MS", sans-serif;
       margin: 0;
       padding: 0;
       height: 100%;
       position: relative;
     }
 
+    div#slides {
+      width: 100%;
+      height: 100%;
+    }
+
     section {
-      margin: 0;
-      padding: 0;
       width: 100%;
       height: 100%;
       background-repeat: no-repeat;
@@ -37,14 +43,14 @@
       font-size: 50px;
     }
 
-    section span {
+    section p span {
       font-weight: 500;
       padding: 8px 8px 4px 8px;
       color: black;
       background: yellow;
     }
 
-    section span a {
+    section p span a {
       color: #f00;
       text-decoration: none;
     }
@@ -56,35 +62,44 @@
 
 </head>
   <body>
-    <section class="s1">
-      <p><span>Click or scroll, your choice.</span></p>
-    </section>
-    <section class="s2">
-      <p><span>Huge background images.</span></p>
-    </section>
-    <section class="s3">
-      <p><span>Filmo. Get it <a href="http://soveran.github.com/filmo">here</a>.</span></p>
-    </section>
-  </body>
+    <div id="slides">
+      <section class="s1">
+        <p><span>Click or scroll, your choice.</span></p>
+      </section>
+      <section class="s2">
+        <p><span>Huge background images.</span></p>
+      </section>
+      <section class="s3">
+        <p><span>Filmo. Get it
+          <a href="http://soveran.github.com/filmo">here</a>.</span></p>
+      </section>
+    </div>
 
-  <script>
-    var current = document.getElementsByTagName("section")[0];
-    function show(slide) {
-      if(!slide || slide.nodeName.toUpperCase() != "SECTION") return;
-      window.scrollTo(0, slide.offsetTop);
-      current = slide;
-    }
-    var nexts = function() { show(current.nextElementSibling); }
-    var prevs = function() { show(current.previousElementSibling); }
-    var onClick = function(e) { if(e.target.nodeName != "A") nexts(); }
-    var onKeyUp = function(e) {
-      switch(e.which) {
-        case 39: nexts(); break;
-        case 37: prevs(); break;
+    <script type="text/javascript">
+      var curr = document.getElementsByTagName("section")[0];
+      var next = function() { show(curr.nextElementSibling); }
+      var prev = function() { show(curr.previousElementSibling); }
+
+      var show = function(slide) {
+        if(slide) {
+          window.scrollTo(0, slide.offsetTop);
+          curr = slide;
+        }
       }
-    }
 
-    document.onclick = onClick;
-    document.onkeyup = onKeyUp;
-  </script>
+      var onClick = function(e) {
+        if(e.target.nodeName != "A") next();
+      }
+
+      var onKeyUp = function(e) {
+        switch(e.which) {
+          case 39: next(); break;
+          case 37: prev(); break;
+        }
+      }
+
+      document.onclick = onClick;
+      document.onkeyup = onKeyUp;
+    </script>
+  </body>
 </html>

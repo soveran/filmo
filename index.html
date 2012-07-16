@@ -64,7 +64,7 @@
   <body>
     <div id="slides">
       <section class="s1">
-        <p><span>Left and right arrow keys.</span></p>
+        <p><span>Click or press the right arrow key.</span></p>
       </section>
       <section class="s2">
         <p><span>Huge background images.</span></p>
@@ -91,6 +91,10 @@
           case 38:
           case 40: return false;
         }
+      }
+
+      document.onclick = function(e) {
+        if(e.target.nodeName != "A") next();
       }
 
       window.onload = function() {

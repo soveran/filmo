@@ -2,13 +2,23 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link
-            href="http://fonts.googleapis.com/css?family=Crete+Round"
-            rel="stylesheet"
-            type="text/css">
         <style>
+            @font-face {
+                font-family: 'Crete Round';
+                font-style: normal;
+                font-weight: 400;
+                src: url(fonts/CreteRound-Regular.ttf);
+            }
+
+            @font-face {
+                font-family: 'Crete Round';
+                font-style: italic;
+                font-weight: 400;
+                src: url(fonts/CreteRound-Italic.ttf);
+            }
+
             body {
-                font-family: "Crete Round", "Trebuchet MS", sans-serif;
+                font-family: "Crete Round", sans-serif;
                 margin: 0;
                 padding: 0;
                 height: 100%;
@@ -45,7 +55,7 @@
             }
 
             pre {
-                font-family: "Ubuntu", monospace;
+                font-family: "Menlo", monospace;
                 margin: 0;
                 display: block;
                 padding: 40px;
